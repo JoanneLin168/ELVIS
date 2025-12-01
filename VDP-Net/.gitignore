@@ -1,0 +1,12 @@
+__pycache__/
+runs/
+data/
+
+*.npy 
+*.pt
+*.pkl
+
+*.out
+*.err
+*.png
+*.jpg

@@ -1,0 +1,16 @@
+name: vdpnet
+channels:
+  - defaults
+dependencies:
+  - torchvision
+  - torchmetrics
+  - pytorch
+  - matplotlib
+  - scipy
+  - opencv
+  - scikit-image
+  - pandas
+  - scikit-learn
+  - lpips
+  - yacs
+  - tensorboard
