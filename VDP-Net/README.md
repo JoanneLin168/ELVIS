@@ -1,4 +1,4 @@
-# 	VDP-Net
+# VDP-Net
 
 ## Setup
 ### Dependencies
@@ -15,7 +15,7 @@ python train.py
 ```
 
 ## Inference
-Run the following command to train our model:
+Run the following command to run inference using our model:
 ```
 python inference.py --input <video> --reference <video> --checkpoint <weights>
 ```

@@ -132,9 +132,18 @@ class Trainer(DefaultTrainer):
     def build_test_loader(cls, cfg, dataset_name):
         dataset_name = cfg.DATASETS.TEST[0]
         if dataset_name.startswith('coco'):
-            mapper = CocoClipDatasetMapper(cfg, is_train=False)
+            mapper = SynthLowlightCocoClipDatasetMapper(
+                        cfg, is_train=False, is_tgt=True, src_dataset_name=dataset_name,
+                        degradation_model=cfg.INPUT.SYNTHESIS.DEGRADATION_MODEL,
+                        param_root=cfg.INPUT.SYNTHESIS.PARAM_ROOT
+                    )
         elif dataset_name.startswith('ytvis') or dataset_name.startswith('ovis'):
-            mapper = YTVISDatasetMapper(cfg, is_train=False) # test without synthesizing lo-wlight
+            mapper = SynthLowlightYTVISDatasetMapper(cfg,
+                    is_train=False,
+                    is_tgt=True,
+                    src_dataset_name=dataset_name,
+                    degradation_model=cfg.INPUT.SYNTHESIS.DEGRADATION_MODEL,
+                    param_root=cfg.INPUT.SYNTHESIS.PARAM_ROOT)
         return build_detection_test_loader(cfg, dataset_name, mapper=mapper)
 
     @classmethod
@@ -325,14 +334,6 @@ def setup(args):
 
 
 def main(args):
-    from vita.data.datasets.ytvis import register_ytvis_instances
-    register_ytvis_instances(
-        name="ytvis_lmot_segm_val",
-        metadata={},
-        json_file=args.lmots_annots,
-        image_root=args.lmots_frames,
-    )
-
     cfg = setup(args)
 
 
@@ -354,10 +355,7 @@ def main(args):
 
 
 if __name__ == "__main__":
-    parser = default_argument_parser()
-    parser.add_argument("--lmots-frames", required=True, type=str, help="path to LMOTS dataset frames")
-    parser.add_argument("--lmots-annots", required=True, type=str, help="path to LMOTS json file")
-    args = parser.parse_args()
+    args = default_argument_parser().parse_args()
     print("Command Line Args:", args)
     launch(
         main,
