@@ -10,7 +10,7 @@ def build_model(args=None):
         if args.checkpoint:
             print(f"Loading model from checkpoint: {args.checkpoint}")
             checkpoint = torch.load(args.checkpoint, map_location=args.device, weights_only=False)
-            model.load_state_dict(checkpoint['model_state_dict'], strict=False)
+            model.load_state_dict(checkpoint['model_state_dict'], strict=True)
         return model
     else:
         print("No arguments provided, using default parameters for model instantiation.")

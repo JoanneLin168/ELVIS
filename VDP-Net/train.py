@@ -25,7 +25,7 @@ def set_seed(seed):
     os.environ['PYTHONHASHSEED'] = str(seed)
 
 def get_arguments():
-    parser = argparse.ArgumentParser(description='DEN noise model training options.')
+    parser = argparse.ArgumentParser(description='VDP-Net noise model training options.')
     parser.add_argument('--dataset_root', default="./data", help='Path to dataset')
     parser.add_argument('--output_folder', default = './runs/', help='Specify where to save checkpoints during training')
 

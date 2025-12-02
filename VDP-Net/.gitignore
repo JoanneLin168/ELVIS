@@ -1,6 +1,7 @@
 __pycache__/
 runs/
 data/
+output/
 
 *.npy 
 *.pt

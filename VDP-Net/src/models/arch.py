@@ -36,14 +36,9 @@ class VDPNet(nn.Module):
         # Create backbones for 2D and 3D feature extraction
         return_nodes = {f"layer{i}": f"layer{i}" for i in range(1, 5)}
 
-        if "resnet50" in args.notes:
-            backbone = resnet50(weights='DEFAULT').eval()
-            layer_channels = {f"layer{i+1}": 2**(i+8) for i in range(4)} # for resnet50
-            print("Using ResNet50 backbone on layer:", feat_layer)
-        else:
-            backbone = resnet18(weights='DEFAULT').eval()
-            layer_channels = {f"layer{i+1}": 2**(i+6) for i in range(4)} # for resnet18
-            print("Using ResNet18 backbone on layer:", feat_layer)
+        backbone = resnet18(weights='DEFAULT').eval()
+        layer_channels = {f"layer{i+1}": 2**(i+6) for i in range(4)} # for resnet18
+        print("Using ResNet18 backbone on layer:", feat_layer)
         self.backbone = create_feature_extractor(backbone, return_nodes)
         self.feat_layer = feat_layer
 
