@@ -4,7 +4,7 @@
 
 **Institution**: Visual Information Laboratory, University of Bristol, United Kingdom
 
-[[`arXiv`](#)]
+[[`arXiv`](http://arxiv.org/abs/2512.01495)]
 
 ## Usage
 1. Train VDP-Net
