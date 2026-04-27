@@ -1,4 +1,4 @@
-# 	ELVIS: Enhance Low-Light for Video Instance Segmentation in the Dark [arXiv preprint]
+# 	ELVIS: Enhance Low-Light for Video Instance Segmentation in the Dark [CVPR 2026]
 
 **Authors**: _Joanne Lin, Ruirui Lin, Yini Li, David Bull, Nantheera Anantrasirichai_
 
