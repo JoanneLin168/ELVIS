@@ -6,6 +6,10 @@
 
 [[`Project Page`](https://joannelin168.github.io/research/ELVIS/)][[`arXiv`](http://arxiv.org/abs/2512.01495)]
 
+<div class="alert alert-block alert-danger">
+<b>(13/10/2026) UPDATE:</b> We have found a bug in our code for DEN results and have updated the tables in the arXiv page. While our proposed degradation pipeline is still the best performing pipeline, the updated metrics show that DEN performs significantly better than previously reported. 
+</div>
+
 ## Usage
 1. Train VDP-Net
 2. Collect $\Phi$ from low-light datasets 
