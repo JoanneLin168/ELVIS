@@ -118,8 +118,8 @@ def apply_degradations(images, model="proposed", kwargs=None, return_params=Fals
             # randomly generate noise_param in range [0,1] with shape (1, 8)
             noise_param = torch.rand(1, 8)
 
-        alpha = torch.tensor(np.round(np.random.uniform(0.1, 1))).view(1, 1)
-        gamma = torch.tensor(np.round(np.random.uniform(0.1, 1))).view(1, 1)
+        alpha = torch.tensor(np.random.uniform(0.1, 1)).view(1, 1)
+        gamma = torch.tensor(np.random.uniform(0.1, 1)).view(1, 1)
         noise_param = torch.cat((alpha, gamma, noise_param), dim=1).repeat(len(images), 1)
 
         images = torch.stack(images, dim=0).float() / 255.0
